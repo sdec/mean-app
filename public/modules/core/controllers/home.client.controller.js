@@ -1,8 +1,14 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Customers',
+	function($scope, Authentication, Customers) {
+
+        var query = Customers.query();
+        query.$promise.then(function(result) {
+           $scope.alerts[0].total = result.length;
+        });
+
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -10,7 +16,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		  {
 		    "icon": 'glyphicon-user',
 		    "color": 'btn-success',
-		    "total": '20,408',
+		    "total": 0,
 		    "description": 'TOTAL CUSTOMERS'
 		  },
 		  {
