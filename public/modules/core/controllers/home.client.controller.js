@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Customers',
-	function($scope, Authentication, Customers) {
+angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Authentication', 'Customers',
+	function($scope, $timeout, Authentication, Customers) {
 
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
@@ -11,7 +11,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		  {
 		    'icon': 'glyphicon-user',
 		    'color': 'btn-success',
-		    'total': '15,613',
+		    'total': '15,614',
 		    'description': 'TOTAL CUSTOMERS'
 		  },
 		  {
